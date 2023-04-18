@@ -10,15 +10,12 @@ def load_lottieurl(url: str):
     return r.json()
 
 # Load the Lottie animation from a URL
-lottie_url_hello = "https://assets7.lottiefiles.com/private_files/lf30_kbu3mkpv.json"
-lottie_hello = load_lottieurl(lottie_url_hello)
+lottie_url = "https://assets7.lottiefiles.com/private_files/lf30_kbu3mkpv.json"
+lottie_json = load_lottieurl(lottie_url)
 
 # Display the animation with reduced dimensions and centered
 st.markdown("<div style='text-align: center;'>"
-            "<h1>Hello, Streamlit!</h1>"
-            "</div>", unsafe_allow_html=True)
-st.markdown("<div style='text-align: center;'>"
             f"<div style='display: inline-block;'>"
-            f"{st_lottie(lottie_hello, speed=1, width=300, height=300, key='hello')}"
+            f"{st_lottie(lottie_json, speed=1, width=150, height=150, key='my_lottie')}"
             f"</div>"
             "</div>", unsafe_allow_html=True)
