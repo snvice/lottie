@@ -3,7 +3,7 @@ import requests
 from streamlit_lottie import st_lottie
 
 # Download the Lottie animation from a URL
-url = 'https://raw.githubusercontent.com/snvice/lottie/main/giraffe.json'
+url = 'https://assets9.lottiefiles.com/packages/lf20_5lTxAupekw.json'
 response = requests.get(url)
 animation_data = response.text
 
