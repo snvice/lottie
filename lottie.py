@@ -1,6 +1,7 @@
+import time
+import requests
 import streamlit as st
 from streamlit_lottie import st_lottie
-import requests
 
 def load_lottieurl(url: str):
     r = requests.get(url)
@@ -12,10 +13,5 @@ def load_lottieurl(url: str):
 lottie_url_hello = "https://assets7.lottiefiles.com/private_files/lf30_kbu3mkpv.json"
 lottie_hello = load_lottieurl(lottie_url_hello)
 
-# Display the animation centered on the page
-st.markdown(
-    f"<div style='display: flex; justify-content: center; align-items: center;'>"
-    f"{st_lottie(lottie_hello, speed=1, width=300, height=300, key='hello')}"
-    "</div>",
-    unsafe_allow_html=True,
-)
+# Display the animation with reduced dimensions
+st_lottie(lottie_hello, speed=1, width=150, height=150, key="hello")
