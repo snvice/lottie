@@ -14,7 +14,7 @@ lottie_url_hello = "https://assets9.lottiefiles.com/packages/lf20_5lTxAupekw.jso
 lottie_hello = load_lottieurl(lottie_url_hello)
 
 # Set up the title with a larger font size and a custom color
-title = "<h1 style='text-align: center; color: #fc6203; font-size: 48px;'>Scan Squad</h1>"
+title = "<h1 style='text-align: center; color: #fc6203; font-size: 28;'>Scan Squad</h1>"
 #st.markdown(title, unsafe_allow_html=True)
 
 # Display the title and animation in a 2-column layout
