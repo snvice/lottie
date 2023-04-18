@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_lottie import st_lottie
 
 # Load the Lottie animation from a file
-with open('path/to/animation.json', 'r') as f:
+with open('https://raw.githubusercontent.com/snvice/lottie/main/giraffe.json', 'r') as f:
     animation_data = f.read()
 
 # Display the animation
