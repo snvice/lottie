@@ -10,8 +10,10 @@ def load_lottieurl(url: str):
     return r.json()
 
 # Load the Lottie animation from a URL
-lottie_url_hello = "https://assets5.lottiefiles.com/packages/lf20_3MIXnQ.json"
+lottie_url_hello = "https://assets7.lottiefiles.com/private_files/lf30_kbu3mkpv.json"
 lottie_hello = load_lottieurl(lottie_url_hello)
 
-# Display the animation with reduced dimensions
-st_lottie(lottie_hello, speed=1, width=200, height=200, key="hello")
+# Create a centered container and place the animation inside it
+container = st.beta_container()
+with container:
+    st_lottie(lottie_hello, speed=1, width=150, height=150, key="hello")
