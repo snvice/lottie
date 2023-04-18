@@ -1,7 +1,6 @@
-import time
-import requests
 import streamlit as st
 from streamlit_lottie import st_lottie
+import requests
 
 def load_lottieurl(url: str):
     r = requests.get(url)
@@ -10,10 +9,12 @@ def load_lottieurl(url: str):
     return r.json()
 
 # Load the Lottie animation from a URL
-lottie_url = "https://assets3.lottiefiles.com/packages/lf20_W5U2ua.json"
+lottie_url = "https://assets10.lottiefiles.com/packages/lf20_OQ3q3qHR.json"
 lottie_json = load_lottieurl(lottie_url)
 
 # Display the animation with reduced dimensions and centered
 st.markdown("<div style='text-align: center;'>"
-            f"{st_lottie(lottie_json, speed=1, width=300, height=300, key='my_lottie')}"
+            f"<div style='display: inline-block;'>"
+            f"{st_lottie(lottie_json, speed=1, width=400, height=400, key='my_lottie')}"
+            f"</div>"
             "</div>", unsafe_allow_html=True)
