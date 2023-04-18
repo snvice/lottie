@@ -17,5 +17,4 @@ st.markdown(
     f"<div style='display: flex; justify-content: center; align-items: center;'>"
     f"{st_lottie(lottie_hello, speed=1, width=300, height=300, key='hello')}"
     + "</div>",
-    unsafe_allow_html=True,
-)
+    unsafe_allow_html=True,)
