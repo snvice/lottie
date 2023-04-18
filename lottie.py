@@ -9,15 +9,13 @@ def load_lottieurl(url: str):
     return r.json()
 
 # Load the Lottie animation from a URL
-lottie_url = "https://assets10.lottiefiles.com/packages/lf20_OQ3q3qHR.json"
-lottie_json = load_lottieurl(lottie_url)
+lottie_url_hello = "https://assets7.lottiefiles.com/private_files/lf30_kbu3mkpv.json"
+lottie_hello = load_lottieurl(lottie_url_hello)
 
-# Display the animation with reduced dimensions and centered
+# Display the animation centered on the page
 st.markdown(
     f"<div style='display: flex; justify-content: center; align-items: center; width: 100%; height: 100vh;'>"
-    f"<div style='width: 400px; height: 400px;'>"
-    f"{st_lottie(lottie_json, speed=1, width=400, height=400, key='my_lottie')}"
-    f"</div>"
+    f"{st_lottie(lottie_hello, speed=1, width=300, height=300, key='hello')}"
     "</div>",
     unsafe_allow_html=True,
 )
