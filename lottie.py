@@ -5,7 +5,7 @@ import requests
 def load_lottieurl(url: str):
     r = requests.get(url)
     if r.status_code != 200:
-        #return None
+        return None
     return r.json()
 
 # Load the Lottie animation from a URL
@@ -14,8 +14,8 @@ lottie_hello = load_lottieurl(lottie_url_hello)
 
 # Display the animation centered on the page
 st.markdown(
-    f"<div style='display: flex; justify-content: center; align-items: center; width: 100%; height: 100vh;'>"
+    f"<div style='display: flex; justify-content: center; align-items: center;'>"
     f"{st_lottie(lottie_hello, speed=1, width=300, height=300, key='hello')}"
     "</div>",
-    unsafe_allow_html=True,
+    
 )
