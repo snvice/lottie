@@ -13,11 +13,9 @@ lottie_url_hello = "https://assets7.lottiefiles.com/private_files/lf30_kbu3mkpv.
 lottie_hello = load_lottieurl(lottie_url_hello)
 
 # Display the animation centered on the page
-st_lottie(
-    lottie_hello,
-    speed=1,
-    width=300,
-    height=300,
-    key='hello',
-    style={'display': 'flex', 'justify-content': 'center', 'align-items': 'center'}
+st.markdown(
+    f"<div style='display: flex; justify-content: center; align-items: center;'>"
+    f"{st_lottie(lottie_hello, speed=1, width=300, height=300, key='hello')}"
+    "</div>",
+    unsafe_allow_html=True,
 )
