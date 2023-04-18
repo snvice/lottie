@@ -13,7 +13,6 @@ def load_lottieurl(url: str):
 
 lottie_url_hello = "https://assets5.lottiefiles.com/packages/lf20_V9t630.json"
 lottie_hello = load_lottieurl(lottie_url_hello)
-lottie_download = load_lottieurl(lottie_url_download)
 st_lottie(lottie_hello, key="hello")
 
 
