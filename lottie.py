@@ -1,23 +1,19 @@
 import streamlit as st
-from streamlit.components.v1 import components
+import styled
 
-# Home page
-def home():
-    st.title("Welcome to my Streamlit app!")
-    # Add your content for the home page here
+# Define the styled component for the title
+StyledTitle = styled.h1`
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+  animation: pulse 2s infinite;
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+`
 
-# Second page
-def second_page():
-    st.balloons()
-    st.title("Welcome to my Streamlit app!")
-    # Add your content for the second page here
-
-# Sidebar navigation
-menu = ["Home", "Second Page"]
-choice = st.sidebar.selectbox("Select a page", menu)
-
-# Display the selected page
-if choice == "Home":
-    home()
-elif choice == "Second Page":
-    second_page()
+# Render the styled title component in Streamlit
+st.markdown(StyledTitle("My Animated Title"))
