@@ -1,25 +1,42 @@
-
-import time
-import requests
 import streamlit as st
-from streamlit_lottie import st_lottie
+import time
 
-st.markdown(
-    """
-    <style>
-    .title {
-        position: relative;
-        animation: moveTitle 2s linear infinite alternate;
-    }
+st.title("Color-changing Title")
 
-    @keyframes moveTitle {
-        from { left: 0px; }
-        to { left: 10px; }
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
-st.title("Animated Title")
-
+while True:
+    st.markdown(
+        f"""
+        <style>
+        .title {{
+            color: {'red'};
+            transition: all 1s;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+    time.sleep(1)
+    st.markdown(
+        f"""
+        <style>
+        .title {{
+            color: {'orange'};
+            transition: all 1s;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+    time.sleep(1)
+    st.markdown(
+        f"""
+        <style>
+        .title {{
+            color: {'yellow'};
+            transition: all 1s;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+    time.sleep(1)
