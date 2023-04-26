@@ -4,15 +4,22 @@ import requests
 import streamlit as st
 from streamlit_lottie import st_lottie
 
-def load_lottieurl(url: str):
-    r = requests.get(url)
-    if r.status_code != 200:
-        return None
-    return r.json()
+st.markdown(
+    """
+    <style>
+    .title {
+        position: relative;
+        animation: moveTitle 2s linear infinite alternate;
+    }
 
-# Load the Lottie animation from a URL
-lottie_url_hello = "https://assets6.lottiefiles.com/packages/lf20_C67qsN3hAk.json"
-lottie_hello = load_lottieurl(lottie_url_hello)
+    @keyframes moveTitle {
+        from { left: 0px; }
+        to { left: 10px; }
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
-# Display the animation with reduced dimensions
-st_lottie(lottie_hello, speed=1, width=250, height=250, key="hello")
+st.title("Animated Title")
+
