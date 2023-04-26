@@ -8,7 +8,8 @@ def home():
 
 # Second page
 def second_page():
-    st.title("This is the second page!")
+    st.balloons()
+    st.title("Welcome to my Streamlit app!")
     # Add your content for the second page here
 
 # Sidebar navigation
