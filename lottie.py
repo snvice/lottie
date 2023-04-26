@@ -1,42 +1,25 @@
 import streamlit as st
-import time
 
-st.title("Color-changing Title")
+st.markdown(
+    """
+    <style>
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    .title {
+        animation: pulse 2s ease-in-out infinite;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
-while True:
-    st.markdown(
-        f"""
-        <style>
-        .title {{
-            color: {'red'};
-            transition: all 1s;
-        }}
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-    time.sleep(1)
-    st.markdown(
-        f"""
-        <style>
-        .title {{
-            color: {'orange'};
-            transition: all 1s;
-        }}
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-    time.sleep(1)
-    st.markdown(
-        f"""
-        <style>
-        .title {{
-            color: {'yellow'};
-            transition: all 1s;
-        }}
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-    time.sleep(1)
+st.title("Pulsing Title")
