@@ -2,5 +2,4 @@ nltk
 matplotlib
 wordcloud
 streamlit_lottie
-github
-PyGithub
+
