@@ -6,7 +6,7 @@ from nltk.corpus import stopwords
 from collections import Counter
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
-import io
+import base64
 
 # Download the NLTK stop words
 nltk.download('stopwords')
@@ -42,7 +42,7 @@ def clean_text(text):
     # Display the top 5 words by frequency in a table
     st.write("Top 5 words by frequency:")
     table_data = [["Word", "Frequency"]]
-    for word, count in word_counts.most_common(5):
+    for i, (word, count) in enumerate(word_counts.most_common(5)):
         table_data.append([word, count])
     st.table(table_data)
 
@@ -60,19 +60,15 @@ def clean_text(text):
     # Display the word cloud
     st.write("Word cloud:")
     st.image(wordcloud.to_array(), use_column_width=True)
-    st.write("")
 
-    # Download the word cloud as a PNG file
-    png_image = wordcloud.to_image()
-    with io.BytesIO() as bytes_io:
-        png_image.save(bytes_io, format='PNG')
-        png_bytes = bytes_io.getvalue()
-    st.download_button(
-        label="Download word cloud",
-        data=png_bytes,
-        file_name="wordcloud.png",
-        mime="image/png",
-    )
+    # Create a download button for the word cloud image
+    image = wordcloud.to_image()
+    with open("wordcloud.png", "wb") as f:
+        f.write(image.read())
+    with open("wordcloud.png", "rb") as f:
+        data = f.read()
+    b64 = base64.b64encode(data).decode()
+    st.markdown(f'<a href="data:image/png;base64,{b64}" download="wordcloud.png"><button type="button">Download Word Cloud</button></a>', unsafe_allow_html=True)
 
     # Return the cleaned text
     return text
