@@ -98,7 +98,7 @@ def app():
     lottie_hello = load_lottieurl(lottie_url_hello)
 
     # Display the animation with reduced dimensions
-    st_lottie(lottie_hello, speed=1, width=225, height=225, key="hello")
+    st_lottie(lottie_hello, speed=1, width=400, height=300, key="hello")
 
     # Create a file uploader component
     file = st.file_uploader("Choose a text file", type=["txt"])
