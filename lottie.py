@@ -6,7 +6,7 @@ from nltk.corpus import stopwords
 from collections import Counter
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
-import base64
+import pandas as pd
 
 # Download the NLTK stop words
 nltk.download('stopwords')
@@ -39,13 +39,12 @@ def clean_text(text):
     # Count the frequency of each word
     word_counts = Counter(words)
 
-   # Display the top 5 words by frequency in a table
+    # Display the top 5 words by frequency in a table
     st.write("Top 5 words by frequency:")
-    table_data = [["Word", "Frequency"]]
-    for i, (word, count) in enumerate(word_counts.most_common(5)):
-        table_data.append([f"{i+1}. {word}", count])
-    st.table(table_data)
-
+    df = pd.DataFrame.from_dict(word_counts, orient='index', columns=['Frequency']).reset_index()
+    df.columns = ['Word', 'Frequency']
+    df = df.sort_values('Frequency', ascending=False).head(5)
+    st.dataframe(df.style.hide_index())
 
     # Generate the word cloud
     wordcloud = WordCloud(background_color="black", 
@@ -62,15 +61,6 @@ def clean_text(text):
     st.write("Word cloud:")
     st.image(wordcloud.to_array(), use_column_width=True)
 
-    # Create a download button for the word cloud image
-    image = wordcloud.to_image()
-    with open("wordcloud.png", "wb") as f:
-        f.write(image.read())
-    with open("wordcloud.png", "rb") as f:
-        data = f.read()
-    b64 = base64.b64encode(data).decode()
-    st.markdown(f'<a href="data:image/png;base64,{b64}" download="wordcloud.png"><button type="button">Download Word Cloud</button></a>', unsafe_allow_html=True)
-
     # Return the cleaned text
     return text
 
@@ -86,6 +76,8 @@ def app():
     if file is not None:
         text = file.read().decode('utf-8')
         cleaned_text = clean_text(text)
+        # Create a download button for the word cloud image
+        st.download_button(label="Download Word Cloud", data=wordcloud.to_image().tobytes(), file_name="word_cloud.png", mime="image/png",)
         
 # Run the app
 if __name__ == '__main__':
