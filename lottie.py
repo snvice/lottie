@@ -6,7 +6,7 @@ from nltk.corpus import stopwords
 from collections import Counter
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
-import base64
+import io
 
 # Download the NLTK stop words
 nltk.download('stopwords')
@@ -61,12 +61,17 @@ def clean_text(text):
     st.write("Word cloud:")
     st.image(wordcloud.to_array(), use_column_width=True)
 
-    # Download button for the word cloud
-    if len(word_counts) > 0:
-        csv = wordcloud.to_image()
-        b64 = base64.b64encode(csv).decode('utf-8')
-        href = f'<a href="data:image/png;base64,{b64}" download="wordcloud.png">Download word cloud</a>'
-        st.markdown(href, unsafe_allow_html=True)
+    # Download the word cloud as a PNG file
+    png_image = wordcloud.to_image()
+    with io.BytesIO() as bytes_io:
+        png_image.save(bytes_io, format='PNG')
+        png_bytes = bytes_io.getvalue()
+    st.download_button(
+        label="Download word cloud",
+        data=png_bytes,
+        file_name="wordcloud.png",
+        mime="image/png",
+    )
 
     # Return the cleaned text
     return text
