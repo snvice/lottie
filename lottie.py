@@ -83,9 +83,7 @@ def clean_text(text):
     return text
 
 
-import requests
-import streamlit as st
-from streamlit_lottie import st_lottie
+
 
 def load_lottieurl(url: str):
     r = requests.get(url)
@@ -94,7 +92,7 @@ def load_lottieurl(url: str):
     return r.json()
 
 # Load the Lottie animation from a URL
-lottie_url_hello = "https://assets9.lottiefiles.com/packages/lf20_Che8IZ2raX.json"
+lottie_url_hello = "https://assets8.lottiefiles.com/private_files/lf30_mjuiybtp.json"
 lottie_hello = load_lottieurl(lottie_url_hello)
 
 # Display the animation with reduced dimensions
