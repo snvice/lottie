@@ -79,8 +79,8 @@ def clean_text(text):
 
 # Define the Streamlit app
 def app():
-    st.title("Text File Uploader")
-    st.write("Upload a text file to clean its contents and count word frequency.")
+    st.title("ChatWiz")
+    st.write("Create a unique word cloud from your chat messages!")
 
     # Create a file uploader component
     file = st.file_uploader("Choose a text file", type=["txt"])
