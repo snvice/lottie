@@ -44,7 +44,7 @@ def clean_text(text):
     table_data = [["Word", "Frequency"]]
     for word, count in word_counts.most_common(5):
         table_data.append([word, count])
-    st.write(table_data)
+    st.table(table_data)
 
     # Generate the word cloud
     wordcloud = WordCloud(background_color="black", 
