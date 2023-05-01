@@ -97,10 +97,9 @@ def app():
     #st.subheader("Discover the most frequently used words in your chats and transform them into a stunning Word Cloud")
     #st.subheader("Upload your chats and <span style='color:blue'>Discover the most frequently used words</span> in your conversations in a stunning Word Cloud", unsafe_allow_html=True)
 
-    st.subheader("Upload your chats and <span style='color:blue'>Discover the most frequently used words</span> in your conversations in a stunning Word Cloud")
-    st.subheader("Upload your chats and Discover the most frequently used words in your conversations in a stunning Word Cloud", style="font-size: 36px")
+    st.subheader("Upload your chats and <span style='color:blue'>Discover the most frequently used words</span> in your conversations in a stunning Word Cloud")    
 
-    #st.markdown("<p style='color:red'>Note: This app requires a text file exported from WhatsApp.</p>", unsafe_allow_html=True)
+    st.markdown("<p style='color:brown'>Note: This app requires a text file exported from WhatsApp.</p>", unsafe_allow_html=True)
 
     
     with st.beta_expander("Instructions"):
