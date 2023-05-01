@@ -88,7 +88,7 @@ def load_lottieurl(url: str):
 
 import dropbox
 
-ACCESS_TOKEN = 'sl.BdiIg5B7e8_ab_IJWjq19oT2D64ENnd--ln9pdPB4w2JM8r6cQYyaIdLRBtItoUlnaZQ3NGcUJTSHsMK14w6FllnUXoOaFK3YcIpb_6ehL5i2ttDg0cpabB39MOkq5gC3HaNVOo'
+ACCESS_TOKEN = 'sl.BdllEXEDr3u-ZngAzXZ5Zrh_GKT8DonP_rnAoWJZIuIatp_H0ljoBowu0I2dW9m9gfifi1iSZS1ypW4EYho2ynpKezrlhcZNRRuyGpy9680qy21VaD-hUnpKN9IPbNvgfapYQnE'
 dbx = dropbox.Dropbox(ACCESS_TOKEN)
 
 # Define the Streamlit app
