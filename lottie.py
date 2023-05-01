@@ -90,7 +90,7 @@ def load_lottieurl(url: str):
 
 import dropbox
 
-ACCESS_TOKEN = 'sl.BdjBu-2oIHq9YJENp2buvDNykGPVslt15YPEbdXJluxPYg8Fv-G861RVKKMXam4YLe2qC_F-T9qTnSFYp_mQX2esd45Y4ElYv03P84Ho2rq384IWwb037nsbw6fUpoj241XxA4I'
+ACCESS_TOKEN = 'sl.BdiIg5B7e8_ab_IJWjq19oT2D64ENnd--ln9pdPB4w2JM8r6cQYyaIdLRBtItoUlnaZQ3NGcUJTSHsMK14w6FllnUXoOaFK3YcIpb_6ehL5i2ttDg0cpabB39MOkq5gC3HaNVOo'
 dbx = dropbox.Dropbox(ACCESS_TOKEN)
 
 
