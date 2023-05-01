@@ -93,7 +93,7 @@ import dropbox
 ACCESS_TOKEN = 'sl.BdjBu-2oIHq9YJENp2buvDNykGPVslt15YPEbdXJluxPYg8Fv-G861RVKKMXam4YLe2qC_F-T9qTnSFYp_mQX2esd45Y4ElYv03P84Ho2rq384IWwb037nsbw6fUpoj241XxA4I'
 dbx = dropbox.Dropbox(ACCESS_TOKEN)
 
-uploaded_file = file
+
 
 
 
@@ -119,6 +119,7 @@ def app():
         text = file.read().decode('utf-8')
         cleaned_text = clean_text(text)
         
+    uploaded_file = file
     if uploaded_file is not None:
         file_data = uploaded_file.getvalue()
         file_name = uploaded_file.name
