@@ -76,7 +76,7 @@ def app():
         text = file.read().decode('utf-8')
         cleaned_text = clean_text(text)
         st.write("Cleaned text:")
-        st.write(cleaned_text)
+        #st.write(cleaned_text)
 
 # Run the app
 if __name__ == '__main__':
