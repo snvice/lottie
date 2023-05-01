@@ -82,6 +82,26 @@ def clean_text(text):
     # Return the cleaned text
     return text
 
+from github import Github
+
+def save_to_github(text, filename, repo_name, repo_path, github_token):
+    # Authenticate with GitHub using a token
+    g = Github(github_token)
+    
+    # Get the repository
+    repo = g.get_user().get_repo(repo_name)
+    
+    # Create a new file in the repository
+    file_path = os.path.join(repo_path, filename)
+    with open(file_path, 'w') as file:
+        file.write(text)
+    with open(file_path, 'r') as file:
+        contents = file.read()
+    
+    # Commit the changes to the repository
+    commit_message = f"Add {filename}"
+    repo.create_file(file_path, commit_message, contents)
+
 def load_lottieurl(url: str):
     r = requests.get(url)
     if r.status_code != 200:
@@ -93,8 +113,7 @@ def app():
     st.title("ChatWiz")
     st.subheader("Discover the most frequently used words in your chats and transform them into a stunning Word Cloud")
     st.write("Export your WhatsApp chat to Gmail, download the text file, and upload it to the app.")
-    st.write("To export your chat, go to the chat you want to export, tap on the three dots on the top right corner, select 'More', and then select 'Export chat'.")
-    
+    st.write("To export your chat, go to the chat you want to export, tap on the three dots on the top right corner, select 'More', and then select 'Export chat'.")   
 
     # Load the Lottie animation from a URL
     lottie_url_hello = "https://assets8.lottiefiles.com/private_files/lf30_mjuiybtp.json"
@@ -110,7 +129,15 @@ def app():
     if file is not None:
         text = file.read().decode('utf-8')
         cleaned_text = clean_text(text)
-           
+        
+    if file is not None:
+    text = file.read().decode('utf-8')
+    save_to_github(text, "mytextfile.txt", "snvice", "/lottie", "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")
+     
+    
+    
+    
+    
 # Run the app
 if __name__ == '__main__':
     app()
