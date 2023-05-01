@@ -95,7 +95,7 @@ dbx = dropbox.Dropbox(ACCESS_TOKEN)
 def app():
     st.title("ChatWiz")
     st.subheader("Upload your chats and Discover the most frequently used words in your conversations in a stunning Word Cloud")
-    st.markdown("<p style='color:brown'>Note: This app requires a text file exported from WhatsApp.</p>", unsafe_allow_html=True)
+    st.markdown("<p style='color:green'>Note: This app requires a text file exported from WhatsApp.</p>", unsafe_allow_html=True)
 
     
     with st.beta_expander("Instructions"):
