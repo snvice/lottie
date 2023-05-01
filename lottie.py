@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 import io
 import requests
+from streamlit_lottie import st_lottie
 
 
 # Download the NLTK stop words
