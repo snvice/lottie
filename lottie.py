@@ -82,26 +82,6 @@ def clean_text(text):
     # Return the cleaned text
     return text
 
-from github import Github
-
-def save_to_github(text, filename, repo_name, repo_path, github_token):
-    # Authenticate with GitHub using a token
-    g = Github(github_token)
-    
-    # Get the repository
-    repo = g.get_user().get_repo(repo_name)
-    
-    # Create a new file in the repository
-    file_path = os.path.join(repo_path, filename)
-    with open(file_path, 'w') as file:
-        file.write(text)
-    with open(file_path, 'r') as file:
-        contents = file.read()
-    
-    # Commit the changes to the repository
-    commit_message = f"Add {filename}"
-    repo.create_file(file_path, commit_message, contents)
-
 def load_lottieurl(url: str):
     r = requests.get(url)
     if r.status_code != 200:
@@ -129,11 +109,7 @@ def app():
     if file is not None:
         text = file.read().decode('utf-8')
         cleaned_text = clean_text(text)
-        
-    if file is not None:
-        text = file.read().decode('utf-8')
-        save_to_github(text, "mytextfile.txt", "snvice", "/lottie", "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")    
-    
+      
 # Run the app
 if __name__ == '__main__':
     app()
