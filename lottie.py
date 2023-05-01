@@ -6,7 +6,7 @@ from nltk.corpus import stopwords
 from collections import Counter
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
-import io
+import base64
 
 # Download the NLTK stop words
 nltk.download('stopwords')
@@ -61,23 +61,23 @@ def clean_text(text):
     st.write("Word cloud:")
     st.image(wordcloud.to_array(), use_column_width=True)
 
-    # Download the word cloud as a PNG file
-    png_image = wordcloud.to_image()
-    with io.BytesIO() as bytes_io:
-        png_image.save(bytes_io, format='PNG')
-        png_bytes = bytes_io.getvalue()
-    st.download_button(
-        label="Download word cloud",
-        data=png_bytes,
-        file_name="wordcloud.png",
-        mime="image/png",
-    )
+    # Create a download button for the word cloud
+    def get_image_download_link(img):
+        """Generates a link allowing the PIL image to be downloaded"""
+        buffered = BytesIO()
+        img.save(buffered, format="JPEG")
+        img_str = base64.b64encode(buffered.getvalue()).decode()
+        href = f'<a download="word_cloud.jpg" href="data:file/jpg;base64,{img_str}">Download Word Cloud</a>'
+        return href
+    
+    st.markdown(get_image_download_link(wordcloud.to_image()), unsafe_allow_html=True)
 
     # Return the cleaned text
     return text
 
 # Define the Streamlit app
 def app():
+    st.set_page_config(page_title="Text File Uploader")
     st.title("Text File Uploader")
     st.write("Upload a text file to clean its contents and count word frequency.")
 
