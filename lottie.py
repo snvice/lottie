@@ -1,17 +1,13 @@
 import streamlit as st
 import re
 
-# Define a function to remove unwanted patterns from text using regex
 def clean_text(text):
-    # Define patterns to remove
-    patterns = [
-        r'^\d{2}/\d{2}/\d{4}, \d{2}:\d{2} - .*?:\s',  # Remove sender names
-        r'^IMG-\d+\.jpg \(file attached\)',  # Remove file attachments
-    ]
-    # Remove each pattern from the text using regex
-    for pattern in patterns:
-        text = re.sub(pattern, '', text, flags=re.MULTILINE)
+    pattern = r'^\d{2}/\d{2}/\d{4}, \d{2}:\d{2} - .*?:\s'
+    text = re.sub(pattern, '', text, flags=re.MULTILINE)
+    pattern = r'^IMG-\d{8}-WA\d{4}\.jpg \(file attached\)\n'
+    text = re.sub(pattern, '', text, flags=re.MULTILINE)
     return text
+
 
 
 # Define the Streamlit app
