@@ -60,6 +60,7 @@ def clean_text(text):
     # Display the word cloud
     st.write("Word cloud:")
     st.image(wordcloud.to_array(), use_column_width=True)
+    st.write("")
 
     # Create a download button for the word cloud
     def get_image_download_link(img):
