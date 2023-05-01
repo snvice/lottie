@@ -7,6 +7,8 @@ from collections import Counter
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 import io
+import requests
+
 
 # Download the NLTK stop words
 nltk.download('stopwords')
