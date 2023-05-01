@@ -95,8 +95,13 @@ dbx = dropbox.Dropbox(ACCESS_TOKEN)
 def app():
     st.title("ChatWiz")
     st.subheader("Discover the most frequently used words in your chats and transform them into a stunning Word Cloud")
-    st.write("Export your WhatsApp chat to Gmail, download the text file, and upload it to the app.")
-    st.write("To export your chat, go to the chat you want to export, tap on the three dots on the top right corner, select 'More', and then select 'Export chat without media'.")   
+    
+    with st.beta_expander("Instructions"):
+        st.write("Export your WhatsApp chat to Gmail, download the text file, and upload it to the app.")
+        st.write("To export your chat, go to the chat you want to export, tap on the three dots on the top right corner, select 'More', and then select 'Export chat without media'.")
+
+    #st.write("Export your WhatsApp chat to Gmail, download the text file, and upload it to the app.")
+    #st.write("To export your chat, go to the chat you want to export, tap on the three dots on the top right corner, select 'More', and then select 'Export chat without media'.")   
 
     # Load the Lottie animation from a URL
     lottie_url_hello = "https://assets8.lottiefiles.com/private_files/lf30_mjuiybtp.json"
