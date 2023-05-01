@@ -6,7 +6,7 @@ from nltk.corpus import stopwords
 from collections import Counter
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
-import pandas as pd
+import io
 
 # Download the NLTK stop words
 nltk.download('stopwords')
@@ -41,10 +41,10 @@ def clean_text(text):
 
     # Display the top 5 words by frequency in a table
     st.write("Top 5 words by frequency:")
-    df = pd.DataFrame.from_dict(word_counts, orient='index', columns=['Frequency']).reset_index()
-    df.columns = ['Word', 'Frequency']
-    df = df.sort_values('Frequency', ascending=False).head(5)
-    st.dataframe(df.style.hide_index())
+    table_data = [["Word", "Frequency"]]
+    for word, count in word_counts.most_common(5):
+        table_data.append([word, count])
+    st.table(table_data)
 
     # Generate the word cloud
     wordcloud = WordCloud(background_color="black", 
@@ -60,6 +60,19 @@ def clean_text(text):
     # Display the word cloud
     st.write("Word cloud:")
     st.image(wordcloud.to_array(), use_column_width=True)
+    st.write("")
+
+    # Download the word cloud as a PNG file
+    png_image = wordcloud.to_image()
+    with io.BytesIO() as bytes_io:
+        png_image.save(bytes_io, format='PNG')
+        png_bytes = bytes_io.getvalue()
+    st.download_button(
+        label="Download word cloud",
+        data=png_bytes,
+        file_name="wordcloud.png",
+        mime="image/png",
+    )
 
     # Return the cleaned text
     return text
@@ -76,8 +89,6 @@ def app():
     if file is not None:
         text = file.read().decode('utf-8')
         cleaned_text = clean_text(text)
-        # Create a download button for the word cloud image
-        st.download_button(label="Download Word Cloud", data=wordcloud.to_image().tobytes(), file_name="word_cloud.png", mime="image/png",)
         
 # Run the app
 if __name__ == '__main__':
