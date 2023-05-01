@@ -39,12 +39,13 @@ def clean_text(text):
     # Count the frequency of each word
     word_counts = Counter(words)
 
-    # Display the top 5 words by frequency in a table
+   # Display the top 5 words by frequency in a table
     st.write("Top 5 words by frequency:")
     table_data = [["Word", "Frequency"]]
     for i, (word, count) in enumerate(word_counts.most_common(5)):
-        table_data.append([word, count])
+        table_data.append([f"{i+1}. {word}", count])
     st.table(table_data)
+
 
     # Generate the word cloud
     wordcloud = WordCloud(background_color="black", 
