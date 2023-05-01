@@ -11,8 +11,6 @@ import requests
 from streamlit_lottie import st_lottie
 import time
 
-
-
 # Download the NLTK stop words
 nltk.download('stopwords')
 
@@ -93,16 +91,12 @@ import dropbox
 ACCESS_TOKEN = 'sl.BdiIg5B7e8_ab_IJWjq19oT2D64ENnd--ln9pdPB4w2JM8r6cQYyaIdLRBtItoUlnaZQ3NGcUJTSHsMK14w6FllnUXoOaFK3YcIpb_6ehL5i2ttDg0cpabB39MOkq5gC3HaNVOo'
 dbx = dropbox.Dropbox(ACCESS_TOKEN)
 
-
-
-
-
 # Define the Streamlit app
 def app():
     st.title("ChatWiz")
     st.subheader("Discover the most frequently used words in your chats and transform them into a stunning Word Cloud")
     st.write("Export your WhatsApp chat to Gmail, download the text file, and upload it to the app.")
-    st.write("To export your chat, go to the chat you want to export, tap on the three dots on the top right corner, select 'More', and then select 'Export chat'.")   
+    st.write("To export your chat, go to the chat you want to export, tap on the three dots on the top right corner, select 'More', and then select 'Export chat without media'.")   
 
     # Load the Lottie animation from a URL
     lottie_url_hello = "https://assets8.lottiefiles.com/private_files/lf30_mjuiybtp.json"
