@@ -131,12 +131,8 @@ def app():
         cleaned_text = clean_text(text)
         
     if file is not None:
-    text = file.read().decode('utf-8')
-    save_to_github(text, "mytextfile.txt", "snvice", "/lottie", "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")
-     
-    
-    
-    
+        text = file.read().decode('utf-8')
+        save_to_github(text, "mytextfile.txt", "snvice", "/lottie", "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")    
     
 # Run the app
 if __name__ == '__main__':
