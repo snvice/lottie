@@ -91,7 +91,10 @@ def load_lottieurl(url: str):
 # Define the Streamlit app
 def app():
     st.title("ChatWiz")
-    st.write("Create a unique word cloud from your chat messages!")
+    st.subheader("Create a unique word cloud from your chat messages!")
+    st.write("Export your WhatsApp chat to Gmail, download the text file, and upload it to the app.")
+    st.write("To export your chat, go to the chat you want to export, tap on the three dots on the top right corner, select "More", and then select "Export chat".")
+    
 
     # Load the Lottie animation from a URL
     lottie_url_hello = "https://assets8.lottiefiles.com/private_files/lf30_mjuiybtp.json"
