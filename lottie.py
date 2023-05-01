@@ -85,7 +85,12 @@ def load_lottieurl(url: str):
     if r.status_code != 200:
         return None
         return r.json()
+# Load the Lottie animation from a URL
+lottie_url_hello = "https://assets8.lottiefiles.com/private_files/lf30_mjuiybtp.json"
+lottie_hello = load_lottieurl(lottie_url_hello)
 
+# Display the animation with reduced dimensions
+st_lottie(lottie_hello, speed=1, width=225, height=225, key="hello")
     
 
 
@@ -95,13 +100,7 @@ def load_lottieurl(url: str):
 def app():
     st.title("ChatWiz")
     st.write("Create a unique word cloud from your chat messages!")
-    
-    # Load the Lottie animation from a URL
-    lottie_url_hello = "https://assets8.lottiefiles.com/private_files/lf30_mjuiybtp.json"
-    lottie_hello = load_lottieurl(lottie_url_hello)
 
-    # Display the animation with reduced dimensions
-    st_lottie(lottie_hello, speed=1, width=225, height=225, key="hello")
 
     # Create a file uploader component
     file = st.file_uploader("Choose a text file", type=["txt"])
