@@ -104,7 +104,7 @@ def app():
     st_lottie(lottie_hello, speed=1, width=800, height=300, key="hello")
 
     # Create a file uploader component
-    file = st.file_uploader("Choose a text file", type=["txt"])
+    file = st.file_uploader("Analyze your chats like a wizard", type=["txt"])
 
     # If a file is uploaded, clean its contents and display them
     if file is not None:
