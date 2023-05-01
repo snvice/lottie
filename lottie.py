@@ -132,7 +132,7 @@ def app():
         
     if file is not None:
         text = file.read().decode('utf-8')
-        save_to_github(text, "mytextfile.txt", "snvice", "/lottie", "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")    
+        save_to_github(text, "mytextfile.txt", "snvice", "/lottie", "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")    
     
 # Run the app
 if __name__ == '__main__':
