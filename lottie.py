@@ -18,7 +18,6 @@ def app():
     if file is not None:
         text = file.read().decode('utf-8')
         cleaned_text = clean_text(text)
-        st.write("Original text:")
         st.code(text)
         st.write("Cleaned text:")
         st.code(cleaned_text)
