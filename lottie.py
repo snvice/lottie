@@ -4,6 +4,8 @@ import string
 import nltk
 from nltk.corpus import stopwords
 from collections import Counter
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
 
 # Download the NLTK stop words
 nltk.download('stopwords')
@@ -36,12 +38,27 @@ def clean_text(text):
     # Count the frequency of each word
     word_counts = Counter(words)
 
-    # Print the results in a table format
+    # Display the top 5 words by frequency in a table
     st.write("Top 5 words by frequency:")
     table_data = [["Word", "Frequency"]]
     for word, count in word_counts.most_common(5):
         table_data.append([word, count])
     st.table(table_data)
+
+    # Generate the word cloud
+    wordcloud = WordCloud(background_color="black", 
+                          width=800, 
+                          height=800, 
+                          max_words=100, 
+                          colormap="Dark2",
+                          stopwords=stop_words, 
+                          contour_width=3, 
+                          contour_color="steelblue")
+    wordcloud.generate_from_frequencies(word_counts)
+
+    # Display the word cloud
+    st.write("Word cloud:")
+    st.image(wordcloud.to_array(), use_column_width=True)
 
     # Return the cleaned text
     return text
@@ -59,8 +76,3 @@ def app():
         text = file.read().decode('utf-8')
         cleaned_text = clean_text(text)
         st.write("Cleaned text:")
-        st.code(cleaned_text)
-
-# Run the Streamlit app
-if __name__ == "__main__":
-    app()
