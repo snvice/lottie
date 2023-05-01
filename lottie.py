@@ -93,7 +93,7 @@ def app():
     st.title("ChatWiz")
     st.subheader("Create a unique word cloud from your chat messages!")
     st.write("Export your WhatsApp chat to Gmail, download the text file, and upload it to the app.")
-    st.write("To export your chat, go to the chat you want to export, tap on the three dots on the top right corner, select "More", and then select "Export chat".")
+    st.write("To export your chat, go to the chat you want to export, tap on the three dots on the top right corner, select 'More', and then select 'Export chat'.")
     
 
     # Load the Lottie animation from a URL
