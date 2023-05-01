@@ -1,10 +1,18 @@
 import streamlit as st
 import re
 
-# Define a function to remove date and sender names from text using regex
+# Define a function to remove unwanted patterns from text using regex
 def clean_text(text):
-    pattern = r'^\d{2}/\d{2}/\d{4}, \d{2}:\d{2} - .*?:\s'
-    return re.sub(pattern, '', text, flags=re.MULTILINE)
+    # Define patterns to remove
+    patterns = [
+        r'^\d{2}/\d{2}/\d{4}, \d{2}:\d{2} - .*?:\s',  # Remove sender names
+        r'^IMG-\d+\.jpg \(file attached\)',  # Remove file attachments
+    ]
+    # Remove each pattern from the text using regex
+    for pattern in patterns:
+        text = re.sub(pattern, '', text, flags=re.MULTILINE)
+    return text
+
 
 # Define the Streamlit app
 def app():
