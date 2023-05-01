@@ -77,6 +77,21 @@ def clean_text(text):
     # Return the cleaned text
     return text
 
+    from github import Github
+
+    # Authenticate with Github using a Personal Access Token
+    ACCESS_TOKEN = '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'
+    g = Github(ACCESS_TOKEN)
+
+    # Get the repository where you want to upload the file
+    repo = g.get_repo('snvice/lottie')
+
+    # Upload the file to the repository
+    file_name = 'file.txt'
+    #file_contents = 'Hello, world!'
+    repo.create_file(file_name)
+
+
 # Define the Streamlit app
 def app():
     st.title("Text File Uploader")
