@@ -5,6 +5,9 @@ import nltk
 from nltk.corpus import stopwords
 from collections import Counter
 
+# Download the NLTK stop words
+nltk.download('stopwords')
+
 # Define a function to clean text and count word frequency
 def clean_text(text):
     # Remove date and sender names using regex
